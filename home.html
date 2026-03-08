@@ -1,11 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GitHub Issues Tracker</title>
+     <!-- tailwind and DaisyUI -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet"/>
+
+ <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- google font -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+ <!-- style css -->
+  <style>
+    *{
+          font-family: "Geist", sans-serif;
+    }
+  </style>
+
 </head>
-<body>
-    home page
+
+<body class="bg-gray-100">
+
+  <!-- NAvbar -->
+<navbar class=" bg-white shadow px-8 flex h-20 justify-between items-center">
+     <!-- right Side -->
+  <div class="flex justify-between items-center ">
+    <img class="w-12 h-auto" src="./assets/github-logo.png" alt="">
+    <h2>GitHub Issues Tracker</h2>
+  </div>
+
+    <!-- left Side -->
+     <div class="flex items-center gap-3">
+    <!-- Search Input with Icon -->
+    <div class="relative">
+      <!-- Icon -->
+      <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+      <!-- input -->
+   <input id="searchInput"
+    type="text"placeholder="Search issues..."
+    class="input input-bordered w-64 pl-10"/>
+    <!-- Button -->
+   <button class="btn btn-primary "><i class="fa-solid fa-plus"></i>Search</button>
+  </div>
+
+</div>
+</navbar> 
+
+<section class="w-11/12 mx-auto bg-[#FFFFFF] mt-10 p-6 rounded shadow">
+  <div>
+ <button class="btn btn-neutral">All</button>
+<button class="btn btn-primary">Open</button>
+<button class="btn btn-secondary">Close</button>
+  </div>
+</section>
+
+<section class="w-11/12 mx-auto bg-[#FFFFFF] mt-6 p-6 rounded shadow ">
+ <div class="flex gap-3">
+    <div class=" flex">
+    <img src="./assets/Aperture.png" alt="">
+  </div> 
+  <div>
+      <h3 class=" text-x font-semibold ltext-[#1F2937]">50 Issues</h3>
+    <p class="font-normal text-[#64748B]">Track and manage your project issues</p>
+  </div>
+     
+  <!-- Right Side -->
+    <div class="flex items-center gap-4 ml-auto">
+       <div class="flex items-center gap-1">
+    <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+     Open
+  </div>
+
+   <div class="flex items-center gap-1">
+  <span class="w-3 h-3 bg-purple-500 rounded-full"></span>
+    Closed
+ </div>
+    </div>
+
+ </div>
+
+</section>
+
+<script src="./script/home.js"></script>
+
 </body>
 </html>

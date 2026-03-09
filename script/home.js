@@ -192,6 +192,7 @@ const handleSearch = async () => {
     catch (error) { console.log("Search Error:", error); }
 };
 
+
 // Enter press search
 searchInput.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {

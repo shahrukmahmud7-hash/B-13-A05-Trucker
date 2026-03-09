@@ -16,12 +16,15 @@ const loadIssues = async () => {
         </div>
         `;
     
+    // const response = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues"
+    
     const response = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues"
 
     );
         const result = await response.json();
         allIssues = result.data;
         displayIssues(allIssues);
+        console.log(result)
     } 
     catch (error) { issuesContainer.innerHTML =
         '<p class="col-span-4 text-center text-red-500">Failed to load issues!</p>';
@@ -35,8 +38,12 @@ const loadIssues = async () => {
 const displayIssues = (issues) => {
     issuesContainer.innerHTML = "";
     issueCountText.innerText = `${issues.length} Issues`;
-    issues.forEach(issue => {
+    issues.forEach(issue => { 
+        const labels = issue.labels.map(label => 
+   `<span class="badge badge-outline badge-sm text-orange-400">● ${label}</span>`
+).join("");
    const borderColor = issue.status === "open" ? "border-t-green-500" : "border-t-purple-500";
+  
 
          let imgSrc = "./assets/Open-Status.png"; 
         if(issue.priority.toLowerCase() === "low") {
@@ -60,27 +67,34 @@ const displayIssues = (issues) => {
         <p class="text-sm text-gray-500 line-clamp-2 mb-4 flex-grow">
         ${issue.description}
         </p>
-
-        <div class="flex gap-2 mb-4">
-        <span class="badge badge-outline badge-sm text-orange-400">● BUG</span>
-        <span class="badge badge-outline badge-sm text-orange-400">● HELP WANTED</span>
-        </div>
+               
+         <div class="flex gap-2 mb-4">
+            ${labels}
+         </div> 
+       
+      
 
         <div class="text-xs text-gray-400 pt-3 border-t">
         <p>#by ${issue.author}</p>
         <p>${new Date(issue.createdAt).toLocaleDateString("en-GB")}</p>
         </div> `;
 
-        card.onclick = () => showModal(issue);
+        card.onclick = () => showModal(issue.id);
         issuesContainer.appendChild(card);
 
     });
 
 };
-
+ 
 
 // Modal Show
-const showModal = (issue) => {
+const showModal = async (id) => {
+     const response = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`
+
+    );
+        const result = await response.json();
+        const issue = result.data
+        console.log(issue);
     const modalContent = document.getElementById("modalContent");
     modalContent.innerHTML = ` <div class="p-2 space-y-4 text-left">
        <h2 class="text-xl font-bold text-[#1F2937]">

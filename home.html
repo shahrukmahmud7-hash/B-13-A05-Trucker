@@ -29,7 +29,7 @@
 <body class="bg-gray-100">
 
   <!-- Navbar -->
-<nav class="bg-white shadow px-8 flex h-20 justify-between items-center">
+<nav class="bg-white shadow px-4 sm:px-8 flex flex-col sm:flex-row h-auto sm:h-20 justify-between items-center gap-4 sm:gap-0 py-4 sm:py-0">
 
   <!-- Left Side -->
   <div class="flex items-center gap-2">
@@ -38,22 +38,22 @@
   </div>
 
   <!-- Right Side -->
-  <div class="flex items-center gap-3">
+  <div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
 
     <!-- Search Input -->
-    <div class="relative">
+    <div class="relative w-full sm:w-64">
       <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
 
       <input
         id="searchInput"
         type="text"
         placeholder="Search issues..."
-        class="input input-bordered w-64 pl-10"
+        class="input input-bordered w-full pl-10"
       >
     </div>
 
     <!-- Button -->
-    <button onclick="handleSearch()" class="btn btn-primary">
+    <button onclick="handleSearch()" class="btn btn-primary w-full sm:w-auto">
       <i class="fa-solid fa-magnifying-glass"></i>
       Search
     </button>
